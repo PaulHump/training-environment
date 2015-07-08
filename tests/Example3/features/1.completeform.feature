@@ -7,3 +7,4 @@ When I visit the test site
 And I login using that user account
 Then I complete the form and submit the details
 And I confirm the details have been recorded correctly
+And Logout

@@ -1,24 +1,17 @@
 
 Given(/^I have a user account$/) do
-  $data = {}
-  $data['user_name'] = 'User' + Time.new().to_i.to_s + '@example.org' # Create a random user name
-  $data['user_password'] = 'password'
-
-  rest_post_call('http://localhost:4567/add_user', $data)
+  create_user
 end
 
 When(/^I visit the test site$/) do
-  visit('http://localhost:4567')
+  visit('http://localhost:4567') #Url for Test App
 end
 
 When(/^I login using that user account$/) do
-  fill_in('username', :with => $data['user_name'])
-  fill_in('password', :with => $data['user_password'])
-  click_button('Sign in')
+  login_user
 end
 
 Then(/^I complete the form and submit the details$/) do
-  #pending # Write code here that turns the phrase above into concrete actions
   click_link ('Details form')
   fill_in('forename', :with => 'Paul')
   fill_in('surname', :with => 'Humphries')
@@ -28,11 +21,9 @@ Then(/^I complete the form and submit the details$/) do
   fill_in('postcode', :with => 'PL1 1AA')
   check ('cycling')
   click_button ('Submit')
-  #sleep 10
 end
 
 Then(/^I confirm the details have been recorded correctly$/) do
-  #pending # Write code here that turns the phrase above into concrete actions
   page.should have_content 'My name is Paul Humphries'
   page.should have_content 57
   page.should have_content 'The Grange'
@@ -41,13 +32,12 @@ Then(/^I confirm the details have been recorded correctly$/) do
   page.should have_content 'cycling'
   page.should have_content 'volvo'
   page.should have_content 'male'
-  #page.text.should match('My name is Paul Humphries')
 end
 
 Then(/^I complete the form as a female and submit the details$/) do
   click_link ('Details form')
   select('Saab', :from => 'cars')
-  first(:xpath, 'html/body/div[1]/form/input[8]').click
+  first(:xpath, 'html/body/div[1]/form/input[8]').click #Selects 'Female' radio button as named the same
   click_button ('Submit')
 end
 
@@ -81,4 +71,8 @@ end
 Then(/^I confirm only the default values are present$/) do
   page.should have_content 'audi'
   page.should have_content 'male'
+end
+
+Then(/^Logout$/) do
+  logout
 end

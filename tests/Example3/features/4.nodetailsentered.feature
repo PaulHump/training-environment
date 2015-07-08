@@ -7,3 +7,4 @@ When I visit the test site
 And I login using that user account
 Then I submit no details
 And I confirm only the default values are present
+And Logout
