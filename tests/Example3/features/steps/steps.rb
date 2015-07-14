@@ -24,14 +24,14 @@ Then(/^I complete the form and submit the details$/) do
 end
 
 Then(/^I confirm the details have been recorded correctly$/) do
-  page.should have_content 'My name is Paul Humphries'
-  page.should have_content 57
-  page.should have_content 'The Grange'
-  page.should have_content 'Plymouth'
-  page.should have_content 'PL1 1AA'
-  page.should have_content 'cycling'
-  page.should have_content 'volvo'
-  page.should have_content 'male'
+  expect(page).to have_content('My name is Paul Humphries')
+  expect(page).to have_content(57)
+  expect(page).to have_content('The Grange')
+  expect(page).to have_content('Plymouth')
+  expect(page).to have_content('PL1 1AA')
+  expect(page).to have_content('cycling')
+  expect(page).to have_content('volvo')
+  expect(page).to have_content('male')
 end
 
 Then(/^I complete the form as a female and submit the details$/) do
@@ -42,8 +42,8 @@ Then(/^I complete the form as a female and submit the details$/) do
 end
 
 Then(/^I confirm the female details have been recorded correctly$/) do
-  page.should have_content 'female'
-  page.should have_content 'saab'
+  expect(page).to have_content('female')
+  expect(page).to have_content('saab')
 end
 
 Then(/^I complete the form with all hobbies and submit the details$/) do
@@ -56,10 +56,10 @@ Then(/^I complete the form with all hobbies and submit the details$/) do
 end
 
 Then(/^I confirm the hobbies details have been recorded correctly$/) do
-  page.should have_content 'walking'
-  page.should have_content 'cycling'
-  page.should have_content 'swimming'
-  page.should have_content 'fiat'
+  expect(page).to have_content('walking')
+  expect(page).to have_content('cycling')
+  expect(page).to have_content('swimming')
+  expect(page).to have_content('fiat')
 end
 
 Then(/^I submit no details$/) do
@@ -69,8 +69,8 @@ Then(/^I submit no details$/) do
 end
 
 Then(/^I confirm only the default values are present$/) do
-  page.should have_content 'audi'
-  page.should have_content 'male'
+  expect(page).to have_content('audi')
+  expect(page).to have_content('male')
 end
 
 Then(/^Logout$/) do
