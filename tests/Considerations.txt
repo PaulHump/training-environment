@@ -1,0 +1,15 @@
+Things to consider whilst testing the Web App
+
+·        Portability (Cross Browser Testing) - Firefox, Chrome, Safari, I.E etc….
+·        Different Operating Systems – Windows 7, Windows 8, Windows 8.1, Linux etc…
+·        Test Different Screen Sizes – 1280 x 1024, 1024 x 768, 800 x 600 etc…
+·        Confirm that all the links are active and re-direct correctly
+·        Are required and optional fields obvious?
+·        Are field names clear and understandable?
+·        Have field limits been set
+·        Has field content been limited i.e Alpha/Numeric – Special Characters???? etc…
+·        Do the forms utilise user-friendly validation, just in case the user enters something wrong or misses a required field?
+·        Is there a clear 'success' message once the user has submitted the form?
+·        Does the site conform to the WCAG v2.0 Accessibility Standards up to AA level
+·        Assess the overall look of the site and identify any cosmetic defects, formatting and rendering issues.
+·        Consider performance of the site if it was to be placed under load. Gain an understanding of the potential traffic on the site from Product Owner / Stakeholders
