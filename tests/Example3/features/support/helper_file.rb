@@ -14,6 +14,13 @@ def login_user
   click_button('Sign in')
 end
 
+#Invalid Login 
+def invalid_login_user
+  fill_in('username', :with => 'InvalidUser@bt.com')
+  fill_in('password', :with => 'green123')
+  click_button('Sign in')
+end
+
 #Logout
 def logout
   click_link ('Back to menu')

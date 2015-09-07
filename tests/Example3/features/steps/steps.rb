@@ -3,6 +3,14 @@ Given(/^I have a user account$/) do
   create_user
 end
 
+Given(/^I login using an login with an invalid user account$/) do
+  invalid_login_user
+end
+
+Then(/^I am presented with a valid error message$/) do
+  assert page.has_content?('Unknown User'), "****************** Error Message Not Found ******************"
+end
+
 When(/^I visit the test site$/) do
   visit('http://localhost:4567') #Url for Test App
 end
@@ -64,15 +72,18 @@ end
 
 Then(/^I submit no details$/) do
   click_link ('Details form')
-  select('Audi', :from => 'cars')
   click_button ('Submit')
 end
 
 Then(/^I confirm only the default values are present$/) do
-  expect(page).to have_content('audi')
-  expect(page).to have_content('male')
+  #expect(page).to have_content('volvo')
+  #expect(page).to have_content('male')
+  assert page.has_content?('volvo'), "****************** Default car value invalid ******************"
+  assert page.has_content?('male'), "****************** Default gender value invalid ******************"
 end
 
 Then(/^Logout$/) do
   logout
 end
+
+#assert page.has_content?($custref), "****************** Reference Not Found ******************"

@@ -2,7 +2,7 @@ require 'open-uri'
 require 'net/http'
 require 'rspec/expectations'
 require 'json'
-
+require 'test/unit/assertions'
 require 'capybara/cucumber'
 
 ### Allows you to use the page. commands
@@ -32,3 +32,5 @@ else
   Capybara.javascript_driver = :selenium
 
 end
+
+World(Test::Unit::Assertions)
