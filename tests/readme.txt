@@ -67,6 +67,24 @@ Example 3
   Then I submit no details
   And I confirm only the default values are present
   And Logout
+  
+  Feature: InvalidUserDetails
+
+  Scenario: Attempt to log in with an invalid user
+
+  Given I visit the test site
+  And I login using an login with an invalid user account
+  Then I am presented with a valid error message
+  
+Example 3a
+  Feature: Completeform
+
+  Scenario: Complete the details form using the watir_webdriver
+  Given I visit the test site
+  And I login using a user account
+  Then I complete the form and submit the details
+  And I confirm the details have been recorded correctly
+  And Logout
 
 Example 4
   -   Feature: Interrogate Data
