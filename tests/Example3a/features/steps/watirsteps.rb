@@ -6,7 +6,7 @@ Given(/^I visit the test site$/) do
 end
 
 When(/^I login using a user account$/) do
-  browser.text_field(:id => 'username').set('User1438852969@example.org')
+  browser.text_field(:id => 'username').set('User1441802645@example.org')
   browser.text_field(:id => 'password').set('password')
   browser.button(:type => 'submit').click
 end
